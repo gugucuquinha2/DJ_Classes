@@ -3,7 +3,7 @@
 </br>
 ### HOW TO USE
 1. Download the repository to your computer.
-2. Open the repository using Unity Hub.
+2. Open the downloaded repository folder using Unity Hub.
 3. To view the examples:
     - The exercises/examples are divided by lessons/classes;
     - Each lesson has a scene and folders with the needed assets (Scripts, Prefabs, etc);
