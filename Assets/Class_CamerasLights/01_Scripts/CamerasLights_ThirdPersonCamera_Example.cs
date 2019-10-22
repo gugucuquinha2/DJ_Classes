@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamerasLights_FirstPersonCamera_Example : MonoBehaviour
+public class CamerasLights_ThirdPersonCamera_Example : MonoBehaviour
 {
     public float speed;
     public GameObject spherePrefab;
     public Transform weaponTransform;
-    public Transform mainCamera;
+    public Transform rotator;
 
     float horRot = 0;
     float verRot = 0;
@@ -38,7 +38,7 @@ public class CamerasLights_FirstPersonCamera_Example : MonoBehaviour
     void LateUpdate()
     {
         // CAMERA ROTATION
-        RotateCamera();
+        RotateRotator();
     }
 
     private void MoveCube()
@@ -84,28 +84,31 @@ public class CamerasLights_FirstPersonCamera_Example : MonoBehaviour
 
         // we use "Mathf.Clamp" to limit the vertical rotation, so it doens't look unnatural
         // the method returns a "float" so we need to apply its value to the actual variable "verRot" for it to take effect
-        verRot = Mathf.Clamp(verRot, -90, 70);
+        verRot = Mathf.Clamp(verRot, 0, 70);
     }
 
     private void RotateCube()
     {
         // in this case we separate the rotations because we only want the cube to use the mouse rotation horizontally (sideways)
-        // the up/down rotation should only affect the camera (see "RotateCamera" method below)
+        // the up/down rotation should only affect the rotator (see "RotateRotator" method below)
         Vector3 cubeRotation = new Vector3(0, horRot, 0);
 
         // apply the rotation to the cube
         transform.rotation = Quaternion.Euler(cubeRotation);
     }
 
-    private void RotateCamera()
+    private void RotateRotator()
     {
         // in this case we separate the rotations because we only want the cube to use the mouse rotation horizontally (sideways)
         // the up and down should only affect the camera
-        Vector3 cameraRotation = new Vector3(verRot, 0, 0);
+        Vector3 rotatorRotation = new Vector3(verRot, 0, 0);
 
-        // since our camera is a CHILD of our cube we need to use "localRotation" instead of "rotation"
-        // so the rotation is relative to the parent's rotation, in this case, the cube - so we don't get weird behaviour
-        mainCamera.localRotation = Quaternion.Euler(cameraRotation);
+        // in this case, we're rotating our rotator, which works as a pivot for our camera, 
+        // this means that when we're rotating the rotator, the camera will be moving relative to that rotator (the camera is a child of the rotator)
+        // and since the rotator has the same position as the cube, the camera will rotate relative to the cube and behave like a Third Person Camera
+        // our camera is a CHILD of our cube we need to use "localRotation" instead of "rotation"
+        // so the rotation is relative to the parent's rotation, in this case, the rotator - so we don't get weird behaviour
+        rotator.localRotation = Quaternion.Euler(rotatorRotation);
     }
 
     private void ShootSphere()
