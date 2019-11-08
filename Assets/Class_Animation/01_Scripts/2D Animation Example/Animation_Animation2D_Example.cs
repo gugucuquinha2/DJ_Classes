@@ -10,8 +10,6 @@ public class Animation_Animation2D_Example : MonoBehaviour
     // default scale of our sprite
     public Vector3 spriteScale = new Vector3(10, 10, 1);
 
-    private bool canJump;
-
     // Start is called before the first frame update
     void Start()
     {
