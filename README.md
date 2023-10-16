@@ -1,5 +1,5 @@
 # DJ_Classes
-**Unity 2019.2.6 project with class exercises and examples.**
+**Unity 2021.3.31 project with class exercises and examples.**
 </br>
 ### HOW TO USE
 1. Download the repository to your computer.
