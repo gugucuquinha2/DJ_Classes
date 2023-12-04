@@ -20,6 +20,6 @@ public class UnityInput_Exercise_3_Sphere : MonoBehaviour
         // so we use the sphere's forward vector (transform.forward) as our translation, 
         // so the sphere can be shot forward along the direction of the cube, at the moment it instanced the sphere
         Vector3 translation = transform.forward;
-        transform.position += translation * speed;
+        transform.position += translation * (speed * Time.deltaTime);
     }
 }

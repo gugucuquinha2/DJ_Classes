@@ -40,7 +40,7 @@ public class UnityInput_Exercise_2 : MonoBehaviour
         translation = new Vector3(hor, 0, ver);
 
         // apply the movement to this cube's transform
-        transform.position += translation * speed;
+        transform.position += translation * (speed * Time.deltaTime);
     }
 
     private void RotateCube(Vector3 _translation)
@@ -49,10 +49,10 @@ public class UnityInput_Exercise_2 : MonoBehaviour
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             Quaternion targetRotation = Quaternion.LookRotation(translation);
-            
+
             // apply the rotation
-            // Quaternion.Slerp interpolates the rotation to our target rotation (cube's movement direction) by 15% (0.15f) every frame, smoothly rotating our cube
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
+            // Quaternion.Slerp interpolates the rotation to our target rotation (cube's movement direction) by a percentage (speed * Time.deltaTime) every frame, smoothly rotating our cube
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
         }
     }
 }

@@ -16,12 +16,14 @@ public class UnityGameplay_Exercise_2 : MonoBehaviour
     void Start()
     {
         // store a reference to the wanted translation
-        translation = new Vector3(1, 0, 0);
+        translation = new Vector3(0, 1, 0);
         // or
         // translation = Vector3.right;
 
         // store a reference to the wanted rotation axis
-        axis = Vector3.up;
+        axis = new Vector3(1, 0, 0);
+
+        transform.GetChild(3);
     }
 
     // Update is called once per frame

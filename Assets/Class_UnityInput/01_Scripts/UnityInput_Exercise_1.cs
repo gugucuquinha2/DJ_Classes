@@ -30,6 +30,6 @@ public class UnityInput_Exercise_1 : MonoBehaviour
         Vector3 translation = new Vector3(hor, 0, ver);
 
         // apply the movement to this cube's transform
-        transform.position += translation * speed;
+        transform.position += translation * (speed * Time.deltaTime);
     }
 }
