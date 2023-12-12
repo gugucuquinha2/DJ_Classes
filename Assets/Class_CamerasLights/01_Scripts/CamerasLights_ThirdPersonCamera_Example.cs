@@ -57,14 +57,14 @@ public class CamerasLights_ThirdPersonCamera_Example : MonoBehaviour
         {
             //... move the cube to its right direction (defined by the cube's horizontal rotation)
             // which multiplied by our input value "hor" will give us input-based negative (moving left) or positive (moving right) values
-            transform.position += transform.right * hor * speed;
+            transform.position += transform.right * hor * (speed * Time.deltaTime);
         }
         // if we're using the "up"/"down" keys...
         if (ver != 0)
         {
             //... move the cube to its forward direction (defined by the cube's horizontal rotation)
             // which multiplied by our input value "hor" will give us input-based negative (moving down) or positive (moving up) values
-            transform.position += transform.forward * ver * speed;
+            transform.position += transform.forward * ver * (speed * Time.deltaTime);
         }
     }
 

@@ -20,6 +20,6 @@ public class CameraLights_SpherePrefab_Movement : MonoBehaviour
         // so we use the sphere's up vector (transform.up) as our translation, 
         // since that's the orientation of our weapon in the scene (check the "green arrow" in the scene)
         Vector3 translation = transform.up;
-        transform.position += translation * speed;
+        transform.position += translation * (speed * Time.deltaTime);
     }
 }

@@ -11,6 +11,9 @@ public class UnityInput_Exercise_3 : MonoBehaviour
     // prefab variables
     public GameObject spherePrefab;
 
+    private float hor;
+    private float ver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,8 +41,8 @@ public class UnityInput_Exercise_3 : MonoBehaviour
         // - if "left arrow" (the negative button) is pressed, value will gradually move to -1
         // - if "right arrow" (the positive button) is pressed, value will gradually move to 1
         // - if no button is pressed, value will return to 0
-        float hor = Input.GetAxis("Horizontal");
-        float ver = Input.GetAxis("Vertical");
+        hor = Input.GetAxis("Horizontal");
+        ver = Input.GetAxis("Vertical");
 
         // setup a translation (direction) for the movement
         // since the values range from [-1, 1] they are a good way of setting our direction
@@ -52,7 +55,7 @@ public class UnityInput_Exercise_3 : MonoBehaviour
     private void RotateCube(Vector3 _translation)
     {
         // only rotate the cube if we're using the keys (so the cube doesn't rotate back to 0)
-        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        if (hor != 0 || ver != 0)
         {
             Quaternion targetRotation = Quaternion.LookRotation(translation);
             
