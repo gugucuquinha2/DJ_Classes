@@ -20,7 +20,7 @@ public class UnityGameplay_Exercise_1 : MonoBehaviour
     void Update()
     {
         // apply the movement to this cube's transform
-        transform.Translate(translation * speed);
+        transform.Translate(translation * (speed * Time.deltaTime));
         // or
         //transform.position += translation * speed;
     }

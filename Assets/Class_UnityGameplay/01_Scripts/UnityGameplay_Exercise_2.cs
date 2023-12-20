@@ -22,19 +22,17 @@ public class UnityGameplay_Exercise_2 : MonoBehaviour
 
         // store a reference to the wanted rotation axis
         axis = new Vector3(1, 0, 0);
-
-        transform.GetChild(3);
     }
 
     // Update is called once per frame
     void Update()
     {
         // apply the movement to this cube's transform
-        transform.Translate(translation * speed);
+        transform.Translate(translation * (speed * Time.deltaTime));
         // or
         //transform.position += translation * speed;
 
         // apply the rotation to this cube's transform
-        transform.Rotate(axis, rotationValue);
+        transform.Rotate(axis, rotationValue * Time.deltaTime);
     }
 }

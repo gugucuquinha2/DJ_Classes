@@ -21,9 +21,4 @@ public class UnityGameplay_Exercise_3 : MonoBehaviour
         // - Child nº3 index = 3 (THE ONE WE WANT)
         Debug.Log(colliders[3]);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }
